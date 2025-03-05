@@ -1,7 +1,5 @@
 $ sqlplus mca99/mca99@172.16.50.33/FISAT
 
-
-
 SQL> create table department_39(dept_id int primary key, dept_name varchar(25) not null, dept_location varchar(25)); 
 
 Table created.
@@ -16,7 +14,7 @@ SQL> create table support_39(s_id int primary key, emp_id int, dept_id int, stat
 Table created.
 
 SQL> DESC department_39;
-DESC employee_39;
+ DESC employee_39;
 DESC support_39; Name					   Null?    Type
  ----------------------------------------- -------- ----------------------------
  DEPT_ID				   NOT NULL NUMBER(38)
@@ -39,7 +37,6 @@ Table altered.
 SQL> drop table support_39;
 
 Table dropped.
-
 
 SQL> alter table Employee_39 modify emp_salary numeric(10,2);
 
@@ -66,25 +63,131 @@ SQL> INSERT INTO department_39(dept_id,dept_name,dept_location)VALUES(104,'Marke
 
 1 row created.
 
-
 SQL> INSERT INTO department_39(dept_id,dept_name,dept_location)VALUES(105,'operations','Los Angeles');
 
 1 row created.
-
-
-
-
-
-
 
 SQL> INSERT INTO Employee_39 VALUES (1,'JOHN DOE',60000,TO_DATE('2021-05-15','YYYY-MM-DD'),101,'johndoe@gmail.com');
 
 1 row created.
 
+SQL> INSERT INTO Employee_39 VALUES (2,'Alice Johnson',75000,TO_DATE('2020-08-10','YYYY-MM-DD'),102,'alicejhonson@gmail.com');  
+1 row created.
+
+insert into employee_39 values(3,'Amal',65000,TO_DATE('2021-10-03', 'YYYY-MM-DD'),103, 'amal@gmail.com');
+1 row created.
+
+SQL> insert into employee_39 values(4,'kiran',65000,TO_DATE('2022-12-07','YYYY-MM-DD'),104, 'Kiran@gmail.com');
+1 row created.
+Commit complete.
+
+SQL>    insert into employee_39 values(5,'Ann',60000,TO_DATE('2022-04-10','YYYY-MM-DD'),105, 'ann@gmail.com');     
+1 row created.
+Commit complete.
+
+SQL> select * from employee_39;
+
+    EMP_ID EMP_NAME		     EMP_SALARY EMP_JOIN_    DEPT_ID
+---------- ------------------------- ---------- --------- ----------
+EMP_EMAIL
+--------------------------------------------------------------------------------
+	 1 JOHN DOE			  60000 15-MAY-21	 101
+johndoe@gmail.com
+
+	 2 Alice Johnson		  75000 10-AUG-20	 102
+alicejhonson@gmail.com
+
+	 3 Amal 			  65000 03-OCT-21	 103
+amal@gmail.com
+
+SQL> update employee_39 set emp_salary=emp_salary*1.10 where emp_id=1;
+
+1 row updated.
+
+Commit complete.
+SQL> delete from employee_39 where emp_id=1;
+
+1 row deleted.
+
+
+    EMP_ID EMP_NAME		     EMP_SALARY EMP_JOIN_    DEPT_ID
+---------- ------------------------- ---------- --------- ----------
+EMP_EMAIL
+--------------------------------------------------------------------------------
+	 4 kiran			  65000 07-DEC-22	 104
+Kiran@gmail.com
+
+	 5 Ann				  60000 10-APR-22	 105
+ann@gmail.com
+
+SQL> update employee_39 set emp_salary=emp_salary*1.10 where emp_id=1;
+
+1 row updated.
+
+Commit complete.
+SQL> delete from employee_39 where emp_id=1;
+
+1 row deleted.
+
+Commit complete.
+SQL> update employee_39 set emp_salary=emp_salary*1.10 where dept_id=101 and emp_salary<50000;
+
+0 rows updated.
+
+Commit complete.
+SQL> delete from employee_39 where emp_id=1;
+
+0 rows deleted.
+
+Commit complete.
+SQL> update employee_39 set emp_salary=emp_salary*1.10 where emp_id=1;
+
+0 rows updated.
+
+Commit complete.
+SQL> update employee_39 set emp_salary=emp_salary*1.10 where dept_id=101 and emp_salary<50000;
+
+0 rows updated.
+
+Commit complete.
+SQL> desc employee_39;  
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID 				   NOT NULL NUMBER(38)
+ EMP_NAME					    VARCHAR2(25)
+ EMP_SALARY					    NUMBER(10,2)
+ EMP_JOIN_DATE					    DATE
+ DEPT_ID					    NUMBER(38)
+ EMP_EMAIL					    VARCHAR2(100)
+
+
+SQL> select * from employee_39;
+
+    EMP_ID EMP_NAME		     EMP_SALARY EMP_JOIN_    DEPT_ID
+---------- ------------------------- ---------- --------- ----------
+EMP_EMAIL
+--------------------------------------------------------------------------------
+	 2 Alice Johnson		  75000 10-AUG-20	 102
+alicejhonson@gmail.com
+
+	 3 Amal 			  65000 03-OCT-21	 103
+amal@gmail.com
+
+	 4 kiran			  65000 07-DEC-22	 104
+Kiran@gmail.com
+
+
+    EMP_ID EMP_NAME		     EMP_SALARY EMP_JOIN_    DEPT_ID
+---------- ------------------------- ---------- --------- ----------
+EMP_EMAIL
+--------------------------------------------------------------------------------
+	 5 Ann				  60000 10-APR-22	 105
+ann@gmail.com
 
 
 
 
 
 
-SQL> INSERT INTO Employee_39 VALUES (2,'Alice Johnson',75000,TO_DATE('2020-08-10','YYYY-MM-DD'),102,'alicejhonson@gmail.com');    
+
+
