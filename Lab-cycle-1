@@ -285,7 +285,8 @@ SQL> select dept_id,max(emp_salary) as Max_salary from employee_39 group by dept
    DEPT_ID MAX_SALARY
 ---------- ----------
        105	95000
-       104	70000SQL> select dept_id,max(emp_salary) as Max_salary from employee_39 group by dept_id;
+       104	70000
+SQL> select dept_id,max(emp_salary) as Max_salary from employee_39 group by dept_id;
 
    DEPT_ID MAX_SALARY
 ---------- ----------
